@@ -1,0 +1,12 @@
+{"id": "seed_task_0", "name": "", "instruction": " x>=2, y<2",  "instances": [{"input": "", "output": "Solve system of inequalities x >= 2, y < 2" }] , "is_classification": false }
+{"id": "seed_task_1", "name": "", "instruction": " y <= 2x-3, y>= -3, y<= -1.25x + 2.5",  "instances": [{"input": "", "output": "Solve system of inequalities y <= 2x - 3, y >= -3, y <= -1.25x + 2.5" }] , "is_classification": false }
+{"id": "seed_task_2", "name": "", "instruction": " y > x-2, y<= 2x+2",  "instances": [{"input": "", "output": "Solve system of inequalities y > x - 2, y <= 2x + 2" }] , "is_classification": false }
+{"id": "seed_task_3", "name": "", "instruction": "2x-5y <= 3, y-3x <= 1",  "instances": [{"input": "", "output": "Solve system of inequalities 2x - 5y <= 3, y - 3x <= 1" }] , "is_classification": false }
+{"id": "seed_task_4", "name": "", "instruction": "5x-29 > -34, 2x+31 < 29",  "instances": [{"input": "", "output": "Solve 5x - 29 > -34 and 2x + 31 < 29" }] , "is_classification": false }
+{"id": "seed_task_5", "name": "", "instruction": "18+0.08B>=75",  "instances": [{"input": "", "output": "Solve 18 + 0.08B >= 75 for B" }] , "is_classification": false }
+{"id": "seed_task_6", "name": "", "instruction": " -2(3x+2)>x+10 or 2x <= -8, -3",  "instances": [{"input": "", "output": "Solve the inequalities -2(3x + 2) > x + 10 and 2x <= -8 for integer x" }] , "is_classification": false }
+{"id": "seed_task_7", "name": "", "instruction": "y<3/4x+3, y<= -2x-1",  "instances": [{"input": "", "output": "Find integer solutions for y < 3/4*x + 3 and y <= -2x - 1" }] , "is_classification": false }
+{"id": "seed_task_8", "name": "", "instruction": "y >= 2x - 3, y <= -x + 2",  "instances": [{"input": "", "output": "Solve system of inequalities y >= 2x - 3, y <= -x + 2" }] , "is_classification": false }
+{"id": "seed_task_9", "name": "", "instruction": "y <= x - 1 , y > -3x + 4",  "instances": [{"input": "", "output": "Solve system of inequalities y <= x - 1, y > -3x + 4" }] , "is_classification": false }
+{"id": "seed_task_10", "name": "", "instruction": "x+y<=6, x+2y<=8",  "instances": [{"input": "", "output": "Solve system of inequalities x + y <= 6, x + 2y <= 8" }] , "is_classification": false }
+{"id": "seed_task_11", "name": "", "instruction": "5x+8y >= 120, x+y <= 20",  "instances": [{"input": "", "output": "Solve system of inequalities 5x + 8y >= 120, x + y <= 20" }] , "is_classification": false }
