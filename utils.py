@@ -103,6 +103,8 @@ def openai_completion(
                     **batch_decoding_args.__dict__,
                     **decoding_kwargs,
                 )
+                if model_name == "gpt-4" or model_name == "gpt-3":
+                    prompt_batch = f'[{{"role": "user", "content": "{prompt_batch}"}}]'
                 completion_batch = openai.Completion.create(prompt=prompt_batch, **shared_kwargs)
                 choices = completion_batch.choices
 
