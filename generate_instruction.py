@@ -24,9 +24,9 @@ import utils
 import fire
 
 
-def encode_prompt(prompt_instructions):
+def encode_prompt(prompt_instructions, prompt_path="./prompt.txt"):
     """Encode multiple prompt instructions into a single string."""
-    prompt = open("./prompt.txt").read() + "\n"
+    prompt = open(prompt_path).read() + "\n"
 
     for idx, task_dict in enumerate(prompt_instructions):
         (instruction, input, output) = task_dict["instruction"], task_dict["input"], task_dict["output"]
@@ -110,6 +110,7 @@ def find_word_in_string(w, s):
 def generate_instruction_following_data(
     output_dir="./",
     seed_tasks_path="./seed_tasks.jsonl",
+    prompt_path="./prompt.txt",
     num_instructions_to_generate=100,
     model_name="text-davinci-003",
     num_prompt_instructions=3,
@@ -154,7 +155,7 @@ def generate_instruction_following_data(
         for _ in range(request_batch_size):
             # only sampling from the seed tasks
             prompt_instructions = random.sample(seed_instruction_data, num_prompt_instructions)
-            prompt = encode_prompt(prompt_instructions)
+            prompt = encode_prompt(prompt_instructions, prompt_path)
             batch_inputs.append(prompt)
         decoding_args = utils.OpenAIDecodingArguments(
             temperature=temperature,
