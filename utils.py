@@ -40,7 +40,7 @@ def openai_completion(
     prompts: Union[str, Sequence[str], Sequence[dict[str, str]], dict[str, str]],
     decoding_args: OpenAIDecodingArguments,
     model_name="text-davinci-003",
-    sleep_time=2,
+    sleep_time=5,
     batch_size=1,
     max_instances=sys.maxsize,
     max_batches=sys.maxsize,
@@ -70,6 +70,7 @@ def openai_completion(
             - an openai_object.OpenAIObject object (if return_text is False)
             - a list of objects of the above types (if decoding_args.n > 1)
     """
+    openai.api_key = "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"
     is_single_prompt = isinstance(prompts, (str, dict))
     if is_single_prompt:
         prompts = [prompts]
@@ -103,8 +104,9 @@ def openai_completion(
                     **batch_decoding_args.__dict__,
                     **decoding_kwargs,
                 )
-                completion_batch = openai.Completion.create(prompt=prompt_batch, **shared_kwargs)
+                completion_batch = openai.ChatCompletion.create(model='gpt-4', messages=[{"role": "user", "content": prompt_batch[0]}], n=1, top_p = 1.0)
                 choices = completion_batch.choices
+                print(prompt_batch)
 
                 for choice in choices:
                     choice["total_tokens"] = completion_batch.usage.total_tokens
@@ -120,7 +122,7 @@ def openai_completion(
                     time.sleep(sleep_time)  # Annoying rate limit on requests.
 
     if return_text:
-        completions = [completion.text for completion in completions]
+        completions = [completion["message"]["content"] for completion in completions]
     if decoding_args.n > 1:
         # make completions a nested list, where each entry is a consecutive decoding_args.n of original entries.
         completions = [completions[i : i + decoding_args.n] for i in range(0, len(completions), decoding_args.n)]

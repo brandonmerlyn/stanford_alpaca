@@ -5,7 +5,7 @@ run:
 python -m generate_instruction generate_instruction_following_data \
   --output_dir ./ \
   --num_instructions_to_generate 10 \
-  --model_name="text-davinci-003" \
+  --model_name="gpt-4" \
 """
 import time
 import json
@@ -44,7 +44,8 @@ def encode_prompt(prompt_instructions, prompt_path="./prompt.txt"):
 def post_process_gpt3_response(num_prompt_instructions, response):
     if response is None:
         return []
-    raw_instructions = f"{num_prompt_instructions+1}. Instruction:" + response["text"]
+    print(response)
+    raw_instructions = f"{num_prompt_instructions+1}. Instruction:" + response["message"]["content"]
     raw_instructions = re.split("###", raw_instructions)
     instructions = []
     for idx, inst in enumerate(raw_instructions):
@@ -65,24 +66,16 @@ def post_process_gpt3_response(num_prompt_instructions, response):
             continue
         # filter based on keywords that are not suitable for language models.
         blacklist = [
-            "image",
-            "images",
-            "graph",
-            "graphs",
-            "picture",
             "pictures",
             "file",
             "files",
             "map",
             "maps",
-            "draw",
-            "plot",
             "go to",
             "video",
             "audio",
             "music",
             "flowchart",
-            "diagram",
         ]
         blacklist += []
         if any(find_word_in_string(word, inst) for word in blacklist):
@@ -109,7 +102,7 @@ def find_word_in_string(w, s):
 
 def generate_instruction_following_data(
     output_dir="./",
-    seed_tasks_path="./seed_tasks.jsonl",
+    seed_tasks_path="./data/X Intercepts, Y Intercepts/seed_tasks.jsonl",
     prompt_path="./prompt.txt",
     num_instructions_to_generate=100,
     model_name="text-davinci-003",
@@ -160,9 +153,7 @@ def generate_instruction_following_data(
         decoding_args = utils.OpenAIDecodingArguments(
             temperature=temperature,
             n=1,
-            max_tokens=3072,  # hard-code to maximize the length. the requests will be automatically adjusted
             top_p=top_p,
-            stop=["\n20", "20.", "20."],
         )
         request_start = time.time()
         results = utils.openai_completion(

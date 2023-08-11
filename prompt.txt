@@ -1,14 +1,14 @@
-You are asked to come up with a set of 20 diverse task instructions. These task instructions will be given to a GPT model and we will evaluate the GPT model for completing the instructions.
+You are asked to come up with a set of 10 diverse task instructions on finding x and y intercepts along with their corresponding Wolfram Alpha query.
 
 Here are the requirements:
-1. Try not to repeat the verb for each instruction to maximize diversity.
-2. The language used for the instruction also should be diverse. For example, you should combine questions with imperative instrucitons.
-3. The type of instructions should be diverse. The list should include diverse types of tasks like open-ended generation, classification, editing, etc.
-4. A GPT language model should be able to complete the instruction. For example, do not ask the assistant to create any visual or audio output. For another example, do not ask the assistant to wake you up at 5pm or set a reminder because it cannot perform any action.
-5. The instructions should be in English.
-6. The instructions should be 1 to 2 sentences long. Either an imperative sentence or a question is permitted.
-7. You should generate an appropriate input to the instruction. The input field should contain a specific example provided for the instruction. It should involve realistic data and should not contain simple placeholders. The input should provide substantial content to make the instruction challenging but should ideally not exceed 100 words.
-8. Not all instructions require input. For example, when a instruction asks about some general information, "what is the highest peak in the world", it is not necssary to provide a specific context. In this case, we simply put "<noinput>" in the input field.
-9. The output should be an appropriate response to the instruction and the input. Make sure the output is less than 100 words.
+1. The instructions should be 1 sentence long.
+2. The output should be an appropriate response to the instruction and the input. Make sure the output is less than 100 words.
+3. Do not generate classification tasks. For example, do not generate tasks such as "Does f(x)=2x have any 0 intercepts?"
+4. The problems should be written in natural language with numbers and operations spelled out.
+5. Do not use the word 'graph' in your query; instead use commands like 'solve' or 'find'.
+6. When writing a query for a word problem, only include the necessary equation to solve the problem.
+7. Do not include more than one task in your instruction. For example, do not ask for both X and Y intercepts within the same instruction. 
+7. Do not use units from the word problem in the query.
+8. The output must be a valid Wolfram Alpha query.
 
-List of 20 tasks:
+List of 10 tasks: 
