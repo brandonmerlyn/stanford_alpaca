@@ -8,7 +8,7 @@ Here are the requirements:
 5. Do not use the word 'graph' in your query; instead use commands like 'solve' or 'find'.
 6. When writing a query for a word problem, only include the necessary equation to solve the problem.
 7. Do not include more than one task in your instruction. For example, do not ask for both X and Y intercepts within the same instruction. 
-7. Do not use units from the word problem in the query.
-8. The output must be a valid Wolfram Alpha query.
+8. Do not use units from the word problem in the query.
+9. The output must be a valid Wolfram Alpha query.
 
 List of 10 tasks: 
